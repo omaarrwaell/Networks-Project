@@ -2,6 +2,13 @@
 var express = require('express');
 var path = require('path');
 var app = express();
+var MongoClient = require('mongodb').MongoClient;
+
+MongoClient.connect("mongodb://localhost:27017",function(err,client){
+  if(err)throw err;
+  var db = client.db('MyDB');
+  db.collection('FirstCollection').insertOne({id:1,firstName:'tyty',lastName: 'rtrt'});
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
