@@ -5,7 +5,6 @@ const app = express();
 const cors = require('cors');
 const database = require('./models/userDatabase.js');
 
-connectToDatabase = require('./models/userDatabase.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -16,9 +15,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/',function(req, res){
-  res.render('home');
-})
+const routes_folder = "./routes/";
+
+app.use('/', require(routes_folder + "login.js"));
+app.use('/', require(routes_folder + "register.js"));
 
 port = process.env.port || 3000;
 
