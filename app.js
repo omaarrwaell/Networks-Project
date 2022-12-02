@@ -1,26 +1,33 @@
+const express = require('express');
+const path = require('path');
+const app = express();
 
-var express = require('express');
-var path = require('path');
-var app = express();
-var MongoClient = require('mongodb').MongoClient;
+const cors = require('cors');
+const database = require('./models/userDatabase.js');
 
-MongoClient.connect("mongodb://localhost:27017",function(err,client){
-  if(err)throw err;
-  var db = client.db('MyDB');
-  db.collection('FirstCollection').insertOne({id:1,firstName:'tyty',lastName: 'rtrt'});
-});
+connectToDatabase = require('./models/userDatabase.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/',function(req,res){
+app.get('/',function(req, res){
   res.render('home');
 })
-app.listen(3000);
+
+port = process.env.port || 3000;
+
+database.connectToDatabase(app, port);
+
+
+
+
+
+
+
 
