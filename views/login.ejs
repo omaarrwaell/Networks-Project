@@ -37,11 +37,15 @@
         <form method="POST">
             Username:<br>
             <input type="text" name="username" style="width : 300px">
+          
+            <br>
+            <%= UsernameError %>
             <br>
             Password:<br>
             <input type="password" name="password" style="width : 300px">
             <br>
-          
+          <%= emptyError %>
+          <%= passError %>
             <br> 
             <input type="submit" value="Login">
         </form>
