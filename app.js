@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-
+const dotenv = require("dotenv");
 const cors = require('cors');
 const database = require('./models/userDatabase.js');
+
+
+dotenv.config();
 
 
 // view engine setup
@@ -25,12 +28,9 @@ port = process.env.port || 3000;
 database.connectToDatabase(app, port);
 
 
-<<<<<<< HEAD
-=======
 
 
 
 
 
->>>>>>> main
 

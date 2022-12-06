@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-const registerView = (req, res) => {
-    res.render("registration.ejs", {});
-}
-
-module.exports = registerView;
-=======
 const userDAO = require('../models/userDao');
 
 
@@ -35,4 +28,3 @@ registerUser = (req, res) => {
     }
 }
 module.exports = {getRegistrationView, registerUser};
->>>>>>> main

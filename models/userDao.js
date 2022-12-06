@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-mongodb = require('mongodb');
-
-let users; 
-
-module.exports = class UserDAO {
-    static async injectDB(conn) {
-        if(users) {
-            return;
-        }
-        try {
-            users = await conn.db("users").collection("details");
-=======
 const mongodb = require('mongodb');
 const bcrypt = require('bcryptjs');
 
@@ -23,15 +10,11 @@ module.exports = class UserDAO {
         }
         try {
             usersCollection = await conn.db("users").collection("details");
->>>>>>> main
             console.log("Connected to Database..");
         }catch(e) {
             console.error("Unable to establish collection handles in userDAO: " + e);
         }
     }
-<<<<<<< HEAD
-}
-=======
 
     static async registerUser(username, password) {
         try{
@@ -61,4 +44,3 @@ module.exports = class UserDAO {
     }
 }
 
->>>>>>> main
