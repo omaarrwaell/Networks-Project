@@ -25,4 +25,12 @@ port = process.env.port || 3000;
 database.connectToDatabase(app, port);
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> main
 
