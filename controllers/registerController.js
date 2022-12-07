@@ -7,16 +7,17 @@ getRegistrationView = (req, res) => {
 
 registerUser = (req, res) => {
     const {username, password} = req.body;
-    if(! username || ! password) {
-        console.log("Fill empty fields");
-        return;
+    if(! username) {
+        res.render('registration.ejs', {usernameError: "fill empty field"})
+    }
+    if(! password) {
+        res.render('registration.ejs', {passwordError: "fill empty field"})
     }
     try{
         userDAO.findUser(username)
         .then((user) => {
             if(user) {
-                console.log("user already exists");
-                return;
+                res.render('registration.ejs', {usernameError: "Username Already Exists. Please Log in"})
             }
             userDAO.registerUser(username, password);
             res.render("login.ejs");
