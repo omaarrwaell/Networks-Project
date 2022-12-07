@@ -14,4 +14,4 @@ getAnnapurnaView = (req,res) => {
 
 
 
-module.exports = {getHikingView,getIncaView,getAnnapurnaView};
+module.exports = {getHikingView, getIncaView, getAnnapurnaView};

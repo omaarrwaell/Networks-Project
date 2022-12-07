@@ -8,10 +8,6 @@ getBaliView = (req,res) => {
 getSantoriniView = (req,res) => {
     res.render('santorini.ejs',{});
 }
-/*getBaliView = (req, res) => {
-    res.render('bali.ejs',{});
-}*/
-
 
 
 module.exports = {getIslandsView,getBaliView,getSantoriniView};
