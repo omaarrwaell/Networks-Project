@@ -19,6 +19,11 @@ const routes_folder = "./routes/";
 
 app.use('/', require(routes_folder + "login.js"));
 app.use('/', require(routes_folder + "register.js"));
+app.use('/', require(routes_folder + "cities.js"));
+app.use('/', require(routes_folder + "home.js"));
+app.use('/', require(routes_folder + "islands.js"));
+app.use('/', require(routes_folder + "hiking.js"));
+
 
 port = process.env.port || 3000;
 
