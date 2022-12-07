@@ -36,9 +36,15 @@
     <div class="cont">
         <form method='post' action='/register'>
             Username: <br>
-            <input type="text" id="user" name="username"> <br>
+            <input type="text" id="user" name="username" required>
+            <br>
+            <p><%= usernameError %></p>
+            <br>
             Password: <br>
-            <input type="password" id="password" name="password"> <br> <br>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <p><%= passwordError %></p>
+            <br> 
             <input type="submit" id="simple_click" class="btn btn-secondary" value="Register"> <br>
         </form>
     </div>

@@ -36,15 +36,21 @@
     <div class="cont">
         <form method="POST">
             Username:<br>
-            <input type="text" name="username" style="width : 300px">
+            <input type="text" name="username" style="width : 300px" required>
+          
+            <br>
+            <%= UsernameError %>
             <br>
             Password:<br>
-            <input type="password" name="password" style="width : 300px">
-            <br><br>
+            <input type="password" name="password" style="width : 300px" required>
+            <br>
+          <%= emptyError %>
+          <%= passError %>
+            <br> 
             <input type="submit" value="Login">
         </form>
         <br>
-        <a href="registration">I dont have an account</a>
+        <a color="black" href="registration">I dont have an account</a>
     </div>
 </body>
 </html>
