@@ -1,7 +1,7 @@
 const userDAO = require('../models/userDao');
 
 getRegistrationView = (req, res) => {
-    res.render("registration.ejs", {});
+    res.render("registration.ejs", {usernameError: "", passwordError: ""});
 }
 
 registerUser = (req, res) => {
@@ -9,22 +9,20 @@ registerUser = (req, res) => {
     try{
         userDAO.findUser(username)
         .then((user) => {
-            let error_message;
             if(user) {
-                error_message = "User Already Registered. Please try to Log In";
+                res.render('registration.ejs', {usernameError: "User Already Registered. Please try to Log In", passwordError: ""})
+                return;
             }
-            else if(password.value.length <= 6){
-                error_message = "Password must be longer than 6 characters";
+            if(password.length <= 6){
+                res.render('registration.ejs', {usernameError: "", passwordError: "Password must be longer than 6 characters"})
+                return;
             }
-            else if(password.value.length >= 20) {
-                error_message = "Password must be less than 20 characters";
-            }
-            if(error_message) {
-                res.render('registration.ejs', {error: error_message})
+            if(password.length >= 20) {
+                res.render('registration.ejs', {usernameError: "", passwordError: "Password must be less than 20 characters"})
                 return;
             }
             userDAO.registerUser(username, password);
-            res.render("login.ejs");
+            res.render("login.ejs", {registrationState: "Registration is Successful !"});
         });
         
     }catch(e) {
