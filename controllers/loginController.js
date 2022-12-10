@@ -9,7 +9,7 @@ const loginView = (req, res) => {
     res.render('login.ejs', { emptyError: "", passError: "", UsernameError: ""});
 }
 
-logUserIn = (req, res) => {
+const logUserIn = (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -24,7 +24,9 @@ logUserIn = (req, res) => {
             return;
         }
         let passMatch = bcrypt.compareSync(password, user.password);    
-        if(passMatch){
+        if(passMatch) {
+            req.session.authenticated = true;
+            req.session.user = user;
             res.render('home');
             return;
         }

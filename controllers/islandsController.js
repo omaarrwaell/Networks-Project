@@ -10,4 +10,4 @@ getSantoriniView = (req,res) => {
 }
 
 
-module.exports = {getIslandsView,getBaliView,getSantoriniView};
+module.exports = {getIslandsView, getBaliView, getSantoriniView};

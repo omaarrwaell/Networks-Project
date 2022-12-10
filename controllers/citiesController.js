@@ -11,4 +11,4 @@ getRomeView = (req,res) => {
 
 
 
-module.exports = {getCitiesView,getRomeView,getParisView};
+module.exports = {getCitiesView, getRomeView, getParisView};

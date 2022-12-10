@@ -8,10 +8,5 @@ getIncaView = (req,res) => {
 getAnnapurnaView = (req,res) => {
     res.render('annapurna.ejs',{});
 }
-/*getBaliView = (req, res) => {
-    res.render('bali.ejs',{});
-}*/
-
-
 
 module.exports = {getHikingView, getIncaView, getAnnapurnaView};

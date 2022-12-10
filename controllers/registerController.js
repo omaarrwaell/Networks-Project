@@ -9,7 +9,7 @@ getRegistrationView = (req, res) => {
 registerUser = (req, res) => {
     const {username, password} = req.body;
     if(! username) {
-        res.render('registration', {usernameError: empty_field_error, passwordError: ""})
+        res.render('registration', {usernameError: empty_field_error, passwordError: ""});
     }
     if(! password) {
         res.render('registration', {usernameError: "", passwordError: empty_field_error});
@@ -25,7 +25,7 @@ registerUser = (req, res) => {
                 return;
             }
             userDAO.registerUser(username, password);
-            res.render("login.ejs");
+            res.render("login.ejs", {usernameError: "", passError: "", emptyError: ""});
         });
         
     }catch(e) {
