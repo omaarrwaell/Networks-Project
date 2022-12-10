@@ -1,6 +1,4 @@
 const userDAO = require('../models/userDao');
-const empty_field_error = "fill empty field";
-const user_already_exists ="Username Already Exists. Please Log in";
 
 getRegistrationView = (req, res) => {
     res.render("registration.ejs", {usernameError: "", passwordError: ""});
@@ -8,24 +6,25 @@ getRegistrationView = (req, res) => {
 
 registerUser = (req, res) => {
     const {username, password} = req.body;
-    if(! username) {
-        res.render('registration', {usernameError: empty_field_error, passwordError: ""});
-    }
-    if(! password) {
-        res.render('registration', {usernameError: "", passwordError: empty_field_error});
-        return;
-    }
     try{
         userDAO.findUser(username)
         .then((user) => {
             
 
             if(user) {
-                res.render('registration', {usernameError: user_already_exists, passwordError: ""});
+                res.render('registration.ejs', {usernameError: "User Already Registered. Please try to Log In", passwordError: ""})
+                return;
+            }
+            if(password.length <= 6){
+                res.render('registration.ejs', {usernameError: "", passwordError: "Password must be longer than 6 characters"})
+                return;
+            }
+            if(password.length >= 20) {
+                res.render('registration.ejs', {usernameError: "", passwordError: "Password must be less than 20 characters"})
                 return;
             }
             userDAO.registerUser(username, password);
-            res.render("login.ejs", {usernameError: "", passError: "", emptyError: ""});
+            res.render("login.ejs", {UsernameError: "", passError: "", emptyError: "", registrationState: "Registration is Successful !"});
         });
         
     }catch(e) {
@@ -33,4 +32,5 @@ registerUser = (req, res) => {
         res.status(500).json({error: e.message});
     }
 }
+
 module.exports = {getRegistrationView, registerUser};

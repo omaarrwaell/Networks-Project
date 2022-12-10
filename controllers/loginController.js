@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 
 
 const loginView = (req, res) => {
-    res.render('login.ejs', { emptyError: "", passError: "", UsernameError: ""});
+    res.render('login.ejs', { emptyError: "", passError: "", UsernameError: "", registrationState: ""});
 }
 
 const logUserIn = (req, res) => {
@@ -14,13 +14,13 @@ const logUserIn = (req, res) => {
     const password = req.body.password;
 
     if (! username  ||  ! password ) {
-        res.render('login', { emptyError: emptyError, passError: "", UsernameError: ""});
+        res.render('login', { emptyError: emptyError, passError: "", UsernameError: "", registrationState: ""});
         return;
     }
     
     userDAO.findUser(username).then((user) => {
         if(! user) {
-            res.render('login', {UsernameError: UsernameError, emptyError: "", passError: ""});
+            res.render('login', {UsernameError: UsernameError, emptyError: "", passError: "", registrationState: ""});
             return;
         }
         let passMatch = bcrypt.compareSync(password, user.password);    
@@ -30,7 +30,7 @@ const logUserIn = (req, res) => {
             res.render('home');
             return;
         }
-        res.render('login', {passError: passError, emptyError: "", UsernameError: ""});
+        res.render('login', {passError: passError, emptyError: "", UsernameError: "", registrationState: ""});
     })
        
 }

@@ -20,6 +20,14 @@
             color: white;
             
         }
+        .message{
+            color:green;
+            font-size: x-large;
+            font: bold;
+        }
+        .link{
+            color:rgb(5, 5, 86)
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +41,7 @@
     <div class="container">
         <h1>Welcome</h1>
     </div>
+    <p class="message"><%= registrationState %></p>
     <div class="cont">
         <form method="POST">
             Username:<br>
@@ -50,7 +59,8 @@
             <input type="submit" value="Login">
         </form>
         <br>
-        <a color="black" href="registration">I dont have an account</a>
+        <a class="link" href="registration">I dont have an account</a>
     </div>
+    
 </body>
 </html>
