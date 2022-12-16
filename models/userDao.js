@@ -42,5 +42,13 @@ module.exports = class UserDAO {
             console.error(e);
         }
     }
+    static async updateUserSavedPlaces(user, newSavedPlaces) {
+        try { 
+            newValues = {$set: {saved_places: newSavedPlaces}}
+            return usersCollection.updateOne(user, newValues);
+        }catch(e) {
+            console.error(e);
+        }
+    }
 }
 
