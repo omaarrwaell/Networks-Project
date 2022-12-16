@@ -1,9 +1,10 @@
 const router = require('express').Router();
-
+const isAuth = require('../controllers/authController');
 const hiking = require('../controllers/hikingController');
-router.get('/hiking', hiking.getHikingView);
-router.get('/inca',hiking.getIncaView);
-router.get('/annapurna',hiking.getAnnapurnaView);
+
+router.get('/hiking', isAuth, hiking.getHikingView);
+router.get('/inca', isAuth, hiking.getIncaView);
+router.get('/annapurna', isAuth, hiking.getAnnapurnaView);
 
 
 

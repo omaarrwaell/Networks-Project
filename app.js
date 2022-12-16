@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const app = express();
-
+const flash = require('connect-flash');
 const cors = require('cors');
 const database = require('./models/userDatabase.js');
 const userDAO = require('./models/userDao');
@@ -22,6 +22,7 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 const routes_folder = "./routes/";
 
