@@ -8,10 +8,7 @@ getParisView = (req,res) => {
 getRomeView = (req,res) => {
     res.render('rome.ejs',{});
 }
-/*getBaliView = (req, res) => {
-    res.render('bali.ejs',{});
-}*/
 
 
 
-module.exports = {getCitiesView,getRomeView,getParisView};
+module.exports = {getCitiesView, getRomeView, getParisView};

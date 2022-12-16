@@ -1,9 +1,10 @@
 const router = require('express').Router();
-
+const isAuth = require('../controllers/authController');
 const cities = require('../controllers/citiesController');
-router.get('/cities', cities.getCitiesView);
-router.get('/paris',cities.getParisView);
-router.get('/rome',cities.getRomeView);
+
+router.get('/cities', isAuth, cities.getCitiesView);
+router.get('/paris', isAuth, cities.getParisView);
+router.get('/rome', isAuth, cities.getRomeView);
 
 
 
