@@ -42,10 +42,12 @@ module.exports = class UserDAO {
             console.error(e);
         }
     }
-    static async updateUserSavedPlaces(user, newSavedPlaces) {
+    static async updateUserSavedPlaces(user, newSavedPlace) {
         try { 
-            newValues = {$set: {saved_places: newSavedPlaces}}
-            return usersCollection.updateOne(user, newValues);
+            console.log(user)
+            console.log()
+            usersCollection.updateOne({username: user.username}, {$push: newSavedPlace});
+            console.log(newSavedPlace)
         }catch(e) {
             console.error(e);
         }
