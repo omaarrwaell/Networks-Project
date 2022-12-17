@@ -85,5 +85,10 @@
     </div>
 
 </body>
-<script src="wishListController.js"></script>
+<script>
+    function postWishList(imageSrc) {
+        console.log("button clicked");
+        $.post( "wanttogo", {imageSrc: imageSrc})
+    }
+</script>
 </html>
