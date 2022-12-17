@@ -1,19 +1,20 @@
-let wishListMessage;
-const initialWishListMessage = "Add to Want-to-Go List";
+
 getHikingView = (req, res) => {
-    wishListMessage = req.flash('wishListMessage')
-    req.flash('wishListMessage', initialWishListMessage)
-    res.render('hiking.ejs', {wishListMessage: wishListMessage});
+    res.render('hiking.ejs', {});
 }
+
+const setButtonTitle = require('./commonPlacesController')
+let savedPlaceError;
+
 getIncaView = (req,res) => {
-    wishListMessage = req.flash('wishListMessage')
-    req.flash('wishListMessage', initialWishListMessage)
-    res.render('inca.ejs',{wishListMessage: wishListMessage});
+    let button_title = setButtonTitle('inca', req.session.user.saved_places)
+    savedPlaceError = req.flash('savedPlaceError')
+    res.render('inca.ejs',{wishListMessage: button_title, savedPlaceError: savedPlaceError});
 }
 getAnnapurnaView = (req,res) => {
-    wishListMessage = req.flash('wishListMessage')
-    req.flash('wishListMessage', initialWishListMessage)
-    res.render('annapurna.ejs',{wishListMessage: wishListMessage});
+    let button_title = setButtonTitle('annapurna', req.session.user.saved_places)
+    savedPlaceError = req.flash('savedPlaceError')
+    res.render('annapurna.ejs',{wishListMessage: button_title, savedPlaceError: savedPlaceError});
 }
 
 module.exports = {getHikingView, getIncaView, getAnnapurnaView};

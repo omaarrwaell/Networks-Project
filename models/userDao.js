@@ -44,10 +44,7 @@ module.exports = class UserDAO {
     }
     static async updateUserSavedPlaces(user, newSavedPlace) {
         try { 
-            console.log(user)
-            console.log()
             usersCollection.updateOne({username: user.username}, {$push: newSavedPlace});
-            console.log(newSavedPlace)
         }catch(e) {
             console.error(e);
         }

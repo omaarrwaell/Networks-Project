@@ -1,19 +1,18 @@
-let wishListMessage;
-const initialWishListMessage = "Add to Want-to-Go List";
 getIslandsView = (req, res) => {
-    wishListMessage = req.flash('wishListMessage')
-    req.flash('wishListMessage', initialWishListMessage)
-    res.render('islands.ejs', {wishListMessage: wishListMessage});
+    res.render('islands.ejs', {});
 }
+const setButtonTitle = require('./commonPlacesController')
+let savedPlaceError;
+
 getBaliView = (req,res) => {
-    wishListMessage = req.flash('wishListMessage')
-    req.flash('wishListMessage', initialWishListMessage)
-    res.render('bali.ejs',{wishListMessage: wishListMessage});
+    let button_title = setButtonTitle('bali', req.session.user.saved_places)
+    savedPlaceError = req.flash('savedPlaceError')
+    res.render('bali.ejs',{wishListMessage: button_title, savedPlaceError: savedPlaceError});
 }
 getSantoriniView = (req,res) => {
-    wishListMessage = req.flash('wishListMessage')
-    req.flash('wishListMessage', initialWishListMessage)
-    res.render('santorini.ejs',{wishListMessage: wishListMessage});
+    let button_title = setButtonTitle('santorini', req.session.user.saved_places)
+    savedPlaceError = req.flash('savedPlaceError')
+    res.render('santorini.ejs',{wishListMessage: button_title, savedPlaceError: savedPlaceError});
 }
 
 module.exports = {getIslandsView, getBaliView, getSantoriniView};

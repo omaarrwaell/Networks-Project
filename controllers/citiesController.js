@@ -1,19 +1,20 @@
-let wishListMessage;
-const initialWishListMessage = "Add to Want-to-Go List"
 getCitiesView = (req, res) => {
-    wishListMessage = req.flash('wishListMessage')
-    req.flash('wishListMessage', initialWishListMessage)
-    res.render('cities.ejs', {wishListMessage});
+    res.render('cities.ejs', {});
 }
+
+const setButtonTitle = require('./commonPlacesController')
+let savedPlaceError;
+
 getParisView = (req,res) => {
-    wishListMessage = req.flash('wishListMessage')
-    req.flash('wishListMessage', initialWishListMessage)
-    res.render('paris.ejs',{wishListMessage});
+    let button_title = setButtonTitle('paris', req.session.user.saved_places)
+    savedPlaceError = req.flash('savedPlaceError')
+    res.render('paris.ejs', {wishListMessage: button_title, savedPlaceError: savedPlaceError});
 }
+
 getRomeView = (req,res) => {
-    wishListMessage = req.flash('wishListMessage')
-    req.flash('wishListMessage', initialWishListMessage)
-    res.render('rome.ejs',{wishListMessage});
+    let button_title = setButtonTitle('rome', req.session.user.saved_places)
+    savedPlaceError = req.flash('savedPlaceError')
+    res.render('rome.ejs', {wishListMessage: button_title, savedPlaceError: savedPlaceError});
 }
 
 
