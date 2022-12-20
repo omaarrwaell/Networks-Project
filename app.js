@@ -23,7 +23,14 @@ app.use('/', require(routes_folder + "cities.js"));
 app.use('/', require(routes_folder + "home.js"));
 app.use('/', require(routes_folder + "islands.js"));
 app.use('/', require(routes_folder + "hiking.js"));
+app.use('/', require(routes_folder + "search.js"));
+app.use('/', require(routes_folder + "wanttogo.js"));
 
+// app.post('/search', function(req, res){
+//     query = req.body.Search
+//     res.render('/search', { query });
+
+// })
 
 port = process.env.port || 3000;
 
