@@ -1,4 +1,4 @@
-getHomeView = (req,res) => {
+getHomeView = (req, res) => {
     res.render('home.ejs',{});
 }
 module.exports = {getHomeView};

@@ -21,12 +21,15 @@
             
         }
         .message{
-            color:green;
+            color:rgb(163, 166, 12);
             font-size: x-large;
             font: bold;
         }
         .link{
             color:rgb(5, 5, 86)
+        }
+        .error{
+            color:red;
         }
     </style>
     <meta charset="UTF-8">
@@ -45,11 +48,16 @@
     <div class="cont">
         <form method="POST">
             Username:<br>
-            <input type="text" name="username" style="width : 300px">
+            <input type="text" name="username" style="width : 300px" required>
+          
+            <br>
+            <p class="error"><%= UsernameError %></p>
             <br>
             Password:<br>
-            <input type="password" name="password" style="width : 300px">
-            <br><br>
+            <input type="password" name="password" style="width : 300px" required>
+            <br>
+          <p class="error"><%= passError %></p>
+            <br> 
             <input type="submit" value="Login">
         </form>
         <br>
