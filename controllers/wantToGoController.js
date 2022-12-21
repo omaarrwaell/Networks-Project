@@ -7,6 +7,6 @@ getWantToGoView = (req,res) => {
         {name: 'Bali Island',type: 'island', link: 'bali'},
         {name: 'Santorini Island',type: 'island', link: 'santorini'},
     ]
-    res.render('wanttogo.ejs',{places});
+    res.render('wanttogo.ejs', {places});
 }
 module.exports = getWantToGoView;
