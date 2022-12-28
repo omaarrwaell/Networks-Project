@@ -44,6 +44,9 @@
         #my {
             zoom: 110%;
         }
+        .error{
+            color:red;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,7 +80,13 @@
         With its stunning turquoise waters and picturesque villages, great activities including wine-tasting, authentic Greek cuisine, regular boat excursions due to its ideal location for island hopping, small Greek island of Santorini became so popular as a holiday destination.
     </div>
     <div class="wanttogo">
-        <button id="wanttogo" class="btn btn-secondary ml-3">Add to Want-to-Go List</button>
+        <form method = "post" action="/wanttogo">
+            <button id="wanttogo" type="submit" formmethod="post" class="btn btn-secondary ml-3">
+                <%= wishListMessage %>
+            </button>
+            <input name="place" value="santorini" type="hidden">
+        </form>
+        <p class="error"><%= savedPlaceError%></p>
     </div>
     <div class="video">
         <iframe width="840" height="473" 

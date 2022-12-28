@@ -44,6 +44,9 @@
         #my {
             zoom: 110%;
         }
+        .error{
+            color:red;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,8 +78,14 @@
     <div class="container2">
         Annapurna Circuit has been voted as the best long-distance trek in the world, as it combined a wide variety of climate zones from tropics at 600m above sea level to the arctic at 5416m above sea level at the Thorong La pass and cultural variety from Hindu villages at the low foothills to the Tibetan culture of Manang.
     </div>
-    <div class="wanttogo">
-        <button id="wanttogo" class="btn btn-secondary ml-3">Add to Want-to-Go List</button>
+     <div class="wanttogo">
+        <form method = "post" action="/wanttogo">
+            <button id="wanttogo" type="submit" formmethod="post" class="btn btn-secondary ml-3">
+                <%= wishListMessage %>
+            </button>
+            <input name="place" value="annapurna" type="hidden">
+        </form>
+        <p class="error"><%= savedPlaceError%></p>
     </div>
     <div class="video">
         <iframe width="840" height="473" 

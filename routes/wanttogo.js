@@ -1,8 +1,7 @@
 const router = require('express').Router()
 const wantToGoView  = require('../controllers/wantToGoController');
+const isAuth = require('../controllers/authController');
 
-
-router.get('/wantToGo', wantToGoView);
-router.post('/wantToGo', wantToGoView);
+router.get('/wanttogo', isAuth, wantToGoView);
 
 module.exports = router;

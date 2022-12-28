@@ -31,13 +31,20 @@ module.exports = class UserDAO {
                 usersCollection.insertOne(newUser);
             })
         }catch(e) {
-            console.error("Unable to post user");
+            console.error("Unable to register user");
             return {error: e};
         }
     }
     static async findUser(username) {
         try {
             return usersCollection.findOne({username: username});
+        }catch(e) {
+            console.error(e);
+        }
+    }
+    static async updateUserSavedPlaces(user, newSavedPlace) {
+        try { 
+            usersCollection.updateOne({username: user.username}, {$push: newSavedPlace});
         }catch(e) {
             console.error(e);
         }
