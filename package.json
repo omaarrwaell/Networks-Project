@@ -20,7 +20,8 @@
     "http-errors": "~1.6.3",
     "mongodb": "^4.12.1",
     "morgan": "~1.9.1",
-    "side-channel": "^1.0.4"
+    "side-channel": "^1.0.4",
+    "www": "^0.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
