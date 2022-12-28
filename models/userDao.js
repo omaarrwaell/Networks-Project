@@ -31,7 +31,7 @@ module.exports = class UserDAO {
                 usersCollection.insertOne(newUser);
             })
         }catch(e) {
-            console.error("Unable to post user");
+            console.error("Unable to register user");
             return {error: e};
         }
     }
