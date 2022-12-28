@@ -15,9 +15,4 @@ const addToWishList = (req, res) => {
     })
 }
 
-
-const viewWishList = (req, res) => {
-    res.render('wanttogo');
-}
-
-module.exports = {viewWishList, addToWishList};
+module.exports = {addToWishList};
