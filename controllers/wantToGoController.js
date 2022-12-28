@@ -18,7 +18,6 @@ getWantToGoView = (req,res) => {
                 placesQuery.push( place);
             }
         });
-        console.log(placesQuery)
         res.render('wanttogo.ejs',{placesQuery});
     })
     

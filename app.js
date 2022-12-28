@@ -5,7 +5,6 @@ const app = express();
 const flash = require('connect-flash');
 const cors = require('cors');
 const database = require('./models/userDatabase.js');
-const userDAO = require('./models/userDao');
 app.use(session({ secret: 'somevalue' }));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
