@@ -9,7 +9,7 @@ module.exports = class UserDAO {
             return;
         }
         try {
-            usersCollection = await conn.db("users").collection("details");
+            usersCollection = await conn.db(process.env.database).collection(process.env.collection);
             console.log("Connected to Database..");
         }catch(e) {
             console.error("Unable to establish collection handles in userDAO: " + e);
