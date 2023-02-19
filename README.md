@@ -25,9 +25,11 @@ implementing the following Tech Stacks:
 git clone https://github.com/omaarrwaell/Time-for-travel/
 cd Time-for-travel
 ```
-2- Create a new Project and a Cluster at <a href="https://www.mongodb.com/atlas/database">MongoDB Atlas</a> 
+2- Create a new Project and a Cluster at <a href="https://www.mongodb.com/atlas/database">MongoDB Atlas</a>
 
-3- Adding a .env file in the root application folder with the following content:
+3- Create a new Database inside the cluster and create a Collection inside the Database. This Collection will hold the users data.
+
+4- Adding a .env file in the root application folder with the following content:
 ```bash
 mongoURL = YOUR_MongoDBAtlas_Cluster_URL
 database = YOUR_DATABASE_NAME
@@ -36,11 +38,11 @@ secret = YOUR_SESSION_SECRET_STRING
 ```
 replace the words after the '=' sign with your correct credentials
 
-4- Install Required Dependencies
+5- Install Required Dependencies
 ```bash
 npm i
 ```
-5- Run the Project
+6- Run the Project
 ```bash
 npm run dev
 ```
