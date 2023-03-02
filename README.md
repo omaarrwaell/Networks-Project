@@ -54,4 +54,4 @@ The Application will be available at localhost:3000
 
 <a href="https://github.com/7ashraf">@Mohamed Ashraf</a>
 
-<a href="https://github.com/omaarwaell">@Omar Wael</a>
+<a href="https://github.com/omaarrwaell">@Omar Wael</a>
