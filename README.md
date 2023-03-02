@@ -6,12 +6,12 @@ This web application was built using the MVC (models-views-controllers) Architec
 
 implementing the following Tech Stacks:
 
-### For setting the Application Server:
+### For the Backend:
 - NodeJs & ExpressJs
-### For Data persistence:
+### For Database:
 - MongoDB Atlas
-### For the Front-End:
-- EJS files
+### For the Frontend:
+- Embedded Javascript (EJS)
 ### For Security:
 - Session-based Authentication
 - Password Hashing Using <b>BCrypt</b>
